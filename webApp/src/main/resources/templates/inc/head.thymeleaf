@@ -1,0 +1,16 @@
+<!-- 
+ * spring_cloud_demo
+ * head
+ * Author: 竺志伟 
+ * Date:   2018-06-18 10:47
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>云大安全检查系统</title>
+    <link rel="stylesheet" href="/static/design/css/layui.css" th:href="@{/static/design/css/layui.css}"/>
+    <link rel="stylesheet" href="/static/design/css/ch233.min.css" th:href="@{/static/design/css/ch233.min.css}"/>
+</head>
+</html>

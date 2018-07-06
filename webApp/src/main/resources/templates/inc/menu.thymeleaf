@@ -1,0 +1,47 @@
+<!-- 
+ * spring_cloud_demo
+ * menu
+ * Author: 竺志伟 
+ * Date:   2018-06-18 10:46
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="layui-header">
+    <div class="layui-logo"><img src="/static/design/images/bt2.png" width="318" height="56" /></div>
+    <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item"><a href="/"><i class="layui-icon">&#xe68e;</i> 首页</a></li>
+    </ul>
+    <ul class="layui-nav layui-layout-right" lay-filter="topMenu">
+        <li class="layui-nav-item"><a href="javascript:;"><i class="layui-icon">&#xe614;</i> 系统管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="/webAdmin/user/toPage"><i class="fa fa-user-circle-o"></i>用户管理</a></dd>
+                <dd><a href="/webAdmin/role/toPage"><i class="fa fa-cogs"></i>角色管理</a></dd>
+                <dd><a href="/webAdmin/function/toPage"><i class="fa fa-code"></i>功能管理</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">
+                您好，<i class="item-impt"><span th:text="${session.aaSession}"></span></i>
+            </a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;" id="passModify">修改密码</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="javascript:;" id="loginOut">退出</a></li>
+    </ul>
+</div>
+<div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll" lay-filter="leftMainMenu">
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree" id="leftMainMenu">
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">
+                    <i class="fa fa-files-o"></i>测试</a>
+                <dl class="layui-nav-child">
+                    <dd><a href=""><i class="fa fa-angle-right"></i>123</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+</html>
