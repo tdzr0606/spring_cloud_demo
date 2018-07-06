@@ -13,9 +13,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Author: 竺志伟
  * @Date: 2018-06-11 20:42
  */
-// Mybatis 扫描
-@MapperScan(value = "com.nature.jet.dataServer.mapper.**")
-@EnableDiscoveryClient
+@MapperScan(value = "com.nature.jet.dataServer.mapper.**")  // Mybatis 扫描
+@EnableDiscoveryClient  // 开启eureka服务器客户端
 @SpringBootApplication
 public class DataServerApplication
 {

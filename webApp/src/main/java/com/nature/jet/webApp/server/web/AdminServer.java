@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
+ * admin 数据服务 接口调用
  * spring_cloud_demo
  * AdminService
  *
@@ -20,9 +21,6 @@ public interface AdminServer
     Admin login(@RequestParam(value = "loginName", defaultValue = "", required = true) String loginName,
                 @RequestParam(value = "password", defaultValue = "", required = true) String password);
 
-
     @RequestMapping(value = "/admin/listPage")
     Page<Admin> listPage();
-
-
 }
