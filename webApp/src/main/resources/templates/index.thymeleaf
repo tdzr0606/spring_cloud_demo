@@ -21,7 +21,7 @@
         <div class="default-cont-tt">
         </div>
         <div class="default-cont-admin">
-            <p>您好，<i class="admin-impt"><span th:text="${session.aaSession}"></span></i></p>
+            <p>您好，<i class="admin-impt"><span th:text="${session.loginUserSession.loginName}"></span></i></p>
             <p>今天是<span th:text="${#calendars.format(nowDate,'yyyy-MM-dd')}"></span>，欢迎使用系统</p>
         </div>
         <div class="default-cont-wrapper">

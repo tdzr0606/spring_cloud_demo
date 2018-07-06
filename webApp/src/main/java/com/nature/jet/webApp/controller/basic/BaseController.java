@@ -1,12 +1,10 @@
 package com.nature.jet.webApp.controller.basic;
 
-import com.nature.jet.webApp.pojo.system.Admin;
+import com.nature.jet.webApp.pojo.web.Admin;
 import com.nature.jet.webApp.util.CommonResult;
 import com.nature.jet.webApp.util.Fields;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.ErrorController;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  * Author: 竺志伟
  * Date:   2017-03-30 15:06
  */
-public abstract class BaseController implements ErrorController
+public abstract class BaseController
 {
-    private static final String ERROR_PATH = "/error";
     protected ModelAndView modelAndView = null;
     @Autowired
     protected HttpServletResponse response;
@@ -29,29 +26,6 @@ public abstract class BaseController implements ErrorController
 
     protected Logger logger = Logger.getLogger(this.getClass());
 
-
-    /**
-     * 错误页面
-     *
-     * @return
-     */
-    @RequestMapping(value = ERROR_PATH)
-    public String handleError()
-    {
-        return "common/error";
-    }
-
-    @Override
-    public String getErrorPath()
-    {
-        return ERROR_PATH;
-    }
-
-
-    protected CommonResult resultDataWrapper(Object obj)
-    {
-        return resultSuccessWrapper("success", obj);
-    }
 
     protected CommonResult resultWrapper(int code, String message, Object obj)
     {
@@ -84,10 +58,20 @@ public abstract class BaseController implements ErrorController
 
     protected Admin getLoginUser()
     {
-        if( null != request.getSession().getAttribute(Fields.SESSION_LOGIN_USER))
+        if(null != request.getSession().getAttribute(Fields.SESSION_LOGIN_USER))
         {
             return (Admin) request.getSession().getAttribute(Fields.SESSION_LOGIN_USER);
         }
         return null;
+    }
+
+    protected void setLoginUser(Admin admin)
+    {
+        request.getSession().setAttribute(Fields.SESSION_LOGIN_USER, admin);
+    }
+
+    protected String getLoginVocde()
+    {
+        return request.getSession().getAttribute(Fields.VCODE_WEBADMIN_LOGIN).toString();
     }
 }

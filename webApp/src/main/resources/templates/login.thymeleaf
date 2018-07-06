@@ -53,6 +53,7 @@
                                         <input type="text" id="vcode" name="loginCode"
                                                required="required"
                                                lay-verify="required|length4" aria-required="true"
+                                               size="4"
                                                autocomplete="off"/>
                                         <img src="/vcode"
                                              id="imgVcode" style="cursor: pointer;"
@@ -105,18 +106,17 @@
         //form 用户登录
         form.on('submit(loginForm)', function (data)
         {
-            var data1 = $("#loginForm").serialize();
             $.ajax({
                 type: 'post',
-                data: data1,
-                url: '/webAdmin/login',
+                data: $("#loginForm").serialize(),
+                url: '/web/login',
                 success: function (json)
                 {
                     console.log(json);
                     if (json.success)
                     {
                         layer.closeAll();
-                        window.location.href = "/webAdmin/toIndex";
+                        window.location.href = "/web/toIndex";
                     }
                     else
                     {

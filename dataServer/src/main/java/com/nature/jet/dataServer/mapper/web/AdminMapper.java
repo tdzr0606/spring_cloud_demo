@@ -1,7 +1,7 @@
-package com.nature.jet.dataServer.mapper.system;
+package com.nature.jet.dataServer.mapper.web;
 
 import com.nature.jet.dataServer.mybatis.config.MyMapper;
-import com.nature.jet.dataServer.pojo.system.Admin;
+import com.nature.jet.dataServer.pojo.web.Admin;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

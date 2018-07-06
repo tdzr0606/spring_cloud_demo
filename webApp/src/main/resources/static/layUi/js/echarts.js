@@ -587,7 +587,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    /**
-	     * Convert from logical coordinate system to pixel coordinate system.
+	     * Convert from logical coordinate web to pixel coordinate web.
 	     * See CoordinateSystem#convertToPixel.
 	     * @param {string|Object} finder
 	     *        If string, e.g., 'geo', means {geoIndex: 0}.
@@ -607,7 +607,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    echartsProto.convertToPixel = zrUtil.curry(doConvertPixel, 'convertToPixel');
 
 	    /**
-	     * Convert from pixel coordinate system to logical coordinate system.
+	     * Convert from pixel coordinate web to logical coordinate web.
 	     * See CoordinateSystem#convertFromPixel.
 	     * @param {string|Object} finder
 	     *        If string, e.g., 'geo', means {geoIndex: 0}.
@@ -644,7 +644,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        if (true) {
 	            console.warn(
-	                'No coordinate system that supports ' + methodName + ' found by the given finder.'
+	                'No coordinate web that supports ' + methodName + ' found by the given finder.'
 	            );
 	        }
 	    }
@@ -788,8 +788,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // Save total ecModel here for undo/redo (after restoring data and before processing data).
 	            // Undo (restoration of total ecModel) can be carried out in 'action' or outside API call.
 
-	            // Create new coordinate system each update
-	            // In LineView may save the old coordinate system and use it to get the orignal point
+	            // Create new coordinate web each update
+	            // In LineView may save the old coordinate web and use it to get the orignal point
 	            coordSysMgr.create(this._model, this._api);
 
 	            processData.call(this, ecModel, api);
@@ -1918,7 +1918,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    /**
-	     * Get dimensions of specified coordinate system.
+	     * Get dimensions of specified coordinate web.
 	     * @param {string} type
 	     * @return {Array.<string|Object>}
 	     */
@@ -19383,7 +19383,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 
 	        /**
-	         * Get base axis if has coordinate system and has axis.
+	         * Get base axis if has coordinate web and has axis.
 	         * By default use coordSys.getBaseAxis();
 	         * Can be overrided for some chart.
 	         * @return {type} description
@@ -27138,7 +27138,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var axesInfo = creator && creator(data, seriesModel, ecModel, completeDimOpt);
 	        var dimensions = axesInfo && axesInfo.dimensions;
 	        if (!dimensions) {
-	            // Get dimensions from registered coordinate system
+	            // Get dimensions from registered coordinate web
 	            dimensions = (registeredCoordSys && (
 	                registeredCoordSys.getDimensionsInfo
 	                    ? registeredCoordSys.getDimensionsInfo()
@@ -27210,7 +27210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    /**
-	     * Creaters for each coord system.
+	     * Creaters for each coord web.
 	     */
 	    var creators = {
 
@@ -28099,7 +28099,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        /**
 	         * Should be implemented by each axis model if necessary.
-	         * @return {module:echarts/model/Component} coordinate system model
+	         * @return {module:echarts/model/Component} coordinate web model
 	         */
 	        getCoordSysModel: zrUtil.noop,
 
@@ -28591,7 +28591,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            // FIXME step not support polar
 	            var step = !isCoordSysPolar && seriesModel.get('step');
-	            // Initialization animation or coordinate system changed
+	            // Initialization animation or coordinate web changed
 	            if (
 	                !(polyline && prevCoordSys.type === coordSys.type && step === this._step)
 	            ) {
@@ -28715,7 +28715,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 
 	            this._data = data;
-	            // Save the coordinate system for transition animation when data changed
+	            // Save the coordinate web for transition animation when data changed
 	            this._coordSys = coordSys;
 	            this._stackedOnPoints = stackedOnPoints;
 	            this._points = points;
@@ -30039,7 +30039,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                var baseAxis = coordSys.getBaseAxis();
 	                var valueAxis = coordSys.getOtherAxis(baseAxis);
 	                var extent = baseAxis.getExtent();
-	                // Coordinste system has been resized
+	                // Coordinste web has been resized
 	                var size = extent[1] - extent[0];
 	                var rate = Math.round(data.count() / size);
 	                if (rate > 1) {
@@ -30851,7 +30851,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	/**
-	 * Cartesian coordinate system
+	 * Cartesian coordinate web
 	 * @module  echarts/coord/Cartesian
 	 *
 	 */
@@ -32500,7 +32500,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        // Collect axes info.
 	        each(api.getCoordinateSystems(), function (coordSys) {
-	            // Some coordinate system do not support axes, like geo.
+	            // Some coordinate web do not support axes, like geo.
 	            if (!coordSys.axisPointerEnabled) {
 	                return;
 	            }
@@ -32945,7 +32945,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            legendHoverLink: true,
 	            // stack: null
 
-	            // Cartesian coordinate system
+	            // Cartesian coordinate web
 	            // xAxisIndex: 0,
 	            // yAxisIndex: 0,
 
@@ -33455,7 +33455,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                maxWidth: 0
 	            };
 
-	            // Caution: In a single coordinate system, these barGrid attributes
+	            // Caution: In a single coordinate web, these barGrid attributes
 	            // will be shared by series. Consider that they have default values,
 	            // only the attributes set on the last series will work.
 	            // Do not change this fact unless there will be a break change.
@@ -34921,14 +34921,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            legendHoverLink: true,
 
 	            hoverAnimation: true,
-	            // Cartesian coordinate system
+	            // Cartesian coordinate web
 	            // xAxisIndex: 0,
 	            // yAxisIndex: 0,
 
-	            // Polar coordinate system
+	            // Polar coordinate web
 	            // polarIndex: 0,
 
-	            // Geo coordinate system
+	            // Geo coordinate web
 	            // geoIndex: 0,
 
 	            // symbol: null,        // 图形类型
@@ -35434,7 +35434,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	        ecModel.eachSeriesByType('radar', function (radarSeries) {
 	            if (radarSeries.get('coordinateSystem') === 'radar') {
-	                // Inject coordinate system
+	                // Inject coordinate web
 	                radarSeries.coordinateSystem = radarList[radarSeries.get('radarIndex') || 0];
 	            }
 	        });
@@ -37378,7 +37378,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Simple view coordinate system
+	 * Simple view coordinate web
 	 * Mapping given x, y to transformd view x, y
 	 */
 
@@ -38753,7 +38753,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                componentModel.setZoom
 	                    && componentModel.setZoom(res.zoom);
 
-	                // All map series with same `map` use the same geo coordinate system
+	                // All map series with same `map` use the same geo coordinate web
 	                // So the center and zoom must be in sync. Include the series not selected by legend
 	                if (componentType === 'series') {
 	                    zrUtil.each(componentModel.seriesGroup, function (seriesModel) {
@@ -42333,7 +42333,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // 现在没有clip功能，暂时取ec高宽。
 	            prunning(
 	                treeRoot,
-	                // Transform to base element coordinate system.
+	                // Transform to base element coordinate web.
 	                new BoundingRect(-layoutInfo.x, -layoutInfo.y, ecWidth, ecHeight),
 	                viewAbovePath,
 	                viewRoot,
@@ -42813,7 +42813,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    echarts.registerLayout(__webpack_require__(224));
 	    echarts.registerLayout(__webpack_require__(226));
 
-	    // Graph view coordinate system
+	    // Graph view coordinate web
 	    echarts.registerCoordinateSystem('graphView', {
 	        create: __webpack_require__(228)
 	    });
@@ -45426,7 +45426,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	
-	    // FIXME Where to create the simple view coordinate system
+	    // FIXME Where to create the simple view coordinate web
 	    var View = __webpack_require__(179);
 	    var layout = __webpack_require__(74);
 	    var bbox = __webpack_require__(41);
@@ -46780,7 +46780,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Parallel coordinate system creater.
+	 * Parallel coordinate web creater.
 	 */
 
 
@@ -46973,7 +46973,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 
 	        /**
-	         * Resize the parallel coordinate system.
+	         * Resize the parallel coordinate web.
 	         * @param {module:echarts/coord/parallel/ParallelModel} parallelModel
 	         * @param {module:echarts/ExtensionAPI} api
 	         */
@@ -47237,7 +47237,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var winSize = axisExpandWindow[1] - axisExpandWindow[0];
 	            var extent = [0, layoutInfo.axisExpandWidth * (layoutInfo.axisCount - 1)];
 
-	            // Out of the area of coordinate system.
+	            // Out of the area of coordinate web.
 	            if (!this.containPoint(point)) {
 	                return {behavior: 'none', axisExpandWindow: axisExpandWindow};
 	            }
@@ -47571,7 +47571,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 
 	        /**
-	         * Whether series or axis is in this coordinate system.
+	         * Whether series or axis is in this coordinate web.
 	         * @param {module:echarts/model/Series|module:echarts/coord/parallel/AxisModel} model
 	         * @param {module:echarts/model/Global} ecModel
 	         */
@@ -51617,14 +51617,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                brushType: 'fill'
 	            },
 
-	            // Cartesian coordinate system
+	            // Cartesian coordinate web
 	            // xAxisIndex: 0,
 	            // yAxisIndex: 0,
 
-	            // Polar coordinate system
+	            // Polar coordinate web
 	            // polarIndex: 0,
 
-	            // Geo coordinate system
+	            // Geo coordinate web
 	            // geoIndex: 0,
 
 	            // symbol: null,        // 图形类型
@@ -51998,7 +51998,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (true) {
 	                var CoordSys = CoordinateSystem.get(option.coordinateSystem);
 	                if (!CoordSys) {
-	                    throw new Error('Unkown coordinate system ' + option.coordinateSystem);
+	                    throw new Error('Unkown coordinate web ' + option.coordinateSystem);
 	                }
 	            }
 
@@ -52044,13 +52044,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            legendHoverLink: true,
 
 	            hoverAnimation: true,
-	            // Cartesian coordinate system
+	            // Cartesian coordinate web
 	            xAxisIndex: 0,
 	            yAxisIndex: 0,
 
 	            symbol: ['none', 'none'],
 	            symbolSize: [10, 10],
-	            // Geo coordinate system
+	            // Geo coordinate web
 	            geoIndex: 0,
 
 	            effect: {
@@ -52869,11 +52869,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            z: 2,
 
-	            // Cartesian coordinate system
+	            // Cartesian coordinate web
 	            // xAxisIndex: 0,
 	            // yAxisIndex: 0,
 
-	            // Geo coordinate system
+	            // Geo coordinate web
 	            geoIndex: 0,
 
 	            blurSize: 30,
@@ -54236,14 +54236,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Single coordinate system creator.
+	 * Single coordinate web creator.
 	 */
 
 
 	    var Single = __webpack_require__(296);
 
 	    /**
-	     * Create single coordinate system and inject it into seriesModel.
+	     * Create single coordinate web and inject it into seriesModel.
 	     *
 	     * @param {module:echarts/model/Global} ecModel
 	     * @param {module:echarts/ExtensionAPI} api
@@ -54287,7 +54287,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Single coordinates system.
+	 * Single coordinates web.
 	 */
 
 
@@ -54296,7 +54296,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var layout = __webpack_require__(74);
 
 	    /**
-	     * Create a single coordinates system.
+	     * Create a single coordinates web.
 	     *
 	     * @param {module:echarts/coord/single/AxisModel} axisModel
 	     * @param {module:echarts/model/Global} ecModel
@@ -54347,7 +54347,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        constructor: Single,
 
 	        /**
-	         * Initialize single coordinate system.
+	         * Initialize single coordinate web.
 	         *
 	         * @param  {module:echarts/coord/single/AxisModel} axisModel
 	         * @param  {module:echarts/model/Global} ecModel
@@ -54396,7 +54396,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 
 	        /**
-	         * Resize the single coordinate system.
+	         * Resize the single coordinate web.
 	         *
 	         * @param  {module:echarts/coord/single/AxisModel} axisModel
 	         * @param  {module:echarts/ExtensionAPI} api
@@ -54922,7 +54922,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        },
 
-	        // Single coordinate system and single axis is the,
+	        // Single coordinate web and single axis is the,
 	        // which is used as the parent tooltip model.
 	        // same model, so we set default tooltip show as true.
 	        tooltip: {
@@ -55101,7 +55101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        // Process for triggered axes.
 	        each(coordSysAxesInfo.coordSysMap, function (coordSys, coordSysKey) {
-	            // If a point given, it must be contained by the coordinate system.
+	            // If a point given, it must be contained by the coordinate web.
 	            var coordSysContainsPoint = isIllegalPoint || coordSys.containPoint(point);
 
 	            each(coordSysAxesInfo.coordSysAxesInfo[coordSysKey], function (axisInfo, key) {
@@ -57704,14 +57704,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            z: 2,
 	            legendHoverLink: true
 
-	            // Cartesian coordinate system
+	            // Cartesian coordinate web
 	            // xAxisIndex: 0,
 	            // yAxisIndex: 0,
 
-	            // Polar coordinate system
+	            // Polar coordinate web
 	            // polarIndex: 0,
 
-	            // Geo coordinate system
+	            // Geo coordinate web
 	            // geoIndex: 0,
 
 	            // label: {}
@@ -60293,7 +60293,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // tooltip主体内容
 	            showContent: true,
 
-	            // 'trigger' only works on coordinate system.
+	            // 'trigger' only works on coordinate web.
 	            // 'item' | 'axis' | 'none'
 	            trigger: 'item',
 
@@ -60861,7 +60861,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var asyncTicket = Math.random();
 
 	            // Do not check whether `trigger` is 'none' here, because `trigger`
-	            // only works on cooridinate system. In fact, we have not found case
+	            // only works on cooridinate web. In fact, we have not found case
 	            // that requires setting `trigger` nothing on component yet.
 
 	            this._showOrMove(subTooltipModel, function () {
@@ -63946,8 +63946,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * There can be multiple axes in a single targetInfo. Consider the case
 	     * of `grid` component, a targetInfo represents a grid which contains one or more
-	     * cartesian and one or more axes. And consider the case of parallel system,
-	     * which has multiple axes in a coordinate system.
+	     * cartesian and one or more axes. And consider the case of parallel web,
+	     * which has multiple axes in a coordinate web.
 	     * Can be {
 	     *     panelId: ...,
 	     *     coordSys: <a representitive cartesian in grid (first cartesian by default)>,
@@ -63991,7 +63991,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *        Each can be {number|Array.<number>}. like: {xAxisIndex: [3, 4]}
 	     * @param {module:echarts/model/Global} ecModel
 	     * @param {Object} [opt]
-	     * @param {Array.<string>} [opt.include] include coordinate system types.
+	     * @param {Array.<string>} [opt.include] include coordinate web types.
 	     */
 	    function BrushTargetManager(option, ecModel, opt) {
 	        /**
@@ -65240,7 +65240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        ecModel.eachSeries(function (calendarSeries) {
 	            if (calendarSeries.get('coordinateSystem') === 'calendar') {
-	                // Inject coordinate system
+	                // Inject coordinate web
 	                calendarSeries.coordinateSystem = calendarList[calendarSeries.get('calendarIndex') || 0];
 	            }
 	        });
@@ -67344,7 +67344,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 
 	        /**
-	         * Find the first target coordinate system.
+	         * Find the first target coordinate web.
 	         *
 	         * @protected
 	         * @return {Object} {
@@ -67657,7 +67657,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // auto-adapt according to target grid.
 	            var coordRect = this._findCoordRect();
 	            var ecSize = {width: api.getWidth(), height: api.getHeight()};
-	            // Default align by coordinate system rect.
+	            // Default align by coordinate web rect.
 	            var positionInfo = this._orient === HORIZONTAL
 	                ? {
 	                    // Why using 'right', because right should be used in vertical,
@@ -68540,7 +68540,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 
-	    // Only create one roam controller for each coordinate system.
+	    // Only create one roam controller for each coordinate web.
 	    // one roam controller might be refered by two inside data zoom
 	    // components (for example, one for x and one for y). When user
 	    // pan or zoom, only dispatch one action for those data zoom
@@ -68574,7 +68574,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var theDataZoomId = dataZoomInfo.dataZoomId;
 	            var theCoordId = dataZoomInfo.coordId;
 
-	            // Do clean when a dataZoom changes its target coordnate system.
+	            // Do clean when a dataZoom changes its target coordnate web.
 	            // Avoid memory leak, dispose all not-used-registered.
 	            zrUtil.each(store, function (record, coordId) {
 	                var dataZoomInfos = record.dataZoomInfos;
@@ -72865,7 +72865,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            tooltip: {
 	                trigger: 'item'
 	            },
-	            // markArea should fixed on the coordinate system
+	            // markArea should fixed on the coordinate web
 	            animation: false,
 	            label: {
 	                normal: {

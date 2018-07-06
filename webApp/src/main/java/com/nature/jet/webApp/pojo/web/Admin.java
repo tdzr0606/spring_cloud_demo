@@ -1,4 +1,4 @@
-package com.nature.jet.dataServer.pojo.system;
+package com.nature.jet.webApp.pojo.web;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;

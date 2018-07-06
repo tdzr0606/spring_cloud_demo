@@ -1,6 +1,6 @@
-package com.nature.jet.webApp.server.system;
+package com.nature.jet.webApp.server.web;
 
-import com.nature.jet.webApp.pojo.system.Admin;
+import com.nature.jet.webApp.pojo.web.Admin;
 import com.nature.jet.webApp.util.Page;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +14,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class AdminServerFallBack  implements AdminServer
 {
+    @Override
+    public Admin login(String loginName, String password)
+    {
+        return null;
+    }
+
     @Override
     public Page<Admin> listPage()
     {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>错误</title>
+    <style>
+        .tip { margin: 10px auto; border-left: solid #009688 5px; background: url("/static/design/images/error2.gif") no-repeat 10px #E2E2E2; background-size: 100px 100px; padding: 30px 20px 20px 120px; }
+
+        .tip strong { color: #FF5722; }
+
+        .tip i { color: #1E9FFF; }
+    </style>
+</head>
+<body>
+<div class='tip'>
+    <span th:text="${errorInfo}"></span>
+    <p>访问的URI:<span th:text="${uri}"></span></p>
+    <p>页面将在 <span id="mes" style="color: #EF0000">5</span> 秒钟后返回首页！,您也可以点击
+        <a href="/" style="background-color:#009688;color:#FFF;padding:10px;text-decoration:none ">回到首页</a></p>
+</div>
+<script language="javascript" type="text/javascript">
+    //<![CDATA[
+    var i = 5;
+    var intervalid = setInterval("fun()", 1000);
+
+    function fun()
+    {
+        if (i == 0)
+        {
+            window.location.href = "/";
+            clearInterval(intervalid);
+        }
+        document.getElementById("mes").innerHTML = i;
+        i--;
+    }
+
+    //]]>
+</script>
+</body>
+</html>

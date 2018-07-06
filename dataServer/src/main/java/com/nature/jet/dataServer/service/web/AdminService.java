@@ -1,9 +1,9 @@
-package com.nature.jet.dataServer.service.system;
+package com.nature.jet.dataServer.service.web;
 
 import com.github.pagehelper.ISelect;
 import com.github.pagehelper.PageHelper;
-import com.nature.jet.dataServer.mapper.system.AdminMapper;
-import com.nature.jet.dataServer.pojo.system.Admin;
+import com.nature.jet.dataServer.mapper.web.AdminMapper;
+import com.nature.jet.dataServer.pojo.web.Admin;
 import com.nature.jet.dataServer.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

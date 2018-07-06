@@ -5,7 +5,8 @@
  * Date:   2018-06-18 10:46
  -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <div class="layui-header">
     <div class="layui-logo"><img src="/static/design/images/bt2.png" width="318" height="56" /></div>
     <ul class="layui-nav layui-layout-left">
