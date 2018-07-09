@@ -15,14 +15,14 @@
     <ul class="layui-nav layui-layout-right" lay-filter="topMenu">
         <li class="layui-nav-item"><a href="javascript:;"><i class="layui-icon">&#xe614;</i> 系统管理</a>
             <dl class="layui-nav-child">
-                <dd><a href="/webAdmin/user/toPage"><i class="fa fa-user-circle-o"></i>用户管理</a></dd>
-                <dd><a href="/webAdmin/role/toPage"><i class="fa fa-cogs"></i>角色管理</a></dd>
-                <dd><a href="/webAdmin/function/toPage"><i class="fa fa-code"></i>功能管理</a></dd>
+                <dd><a href="/web/admin/toPage"><i class="fa fa-user-circle-o"></i>用户管理</a></dd>
+                <dd><a href="/web/role/toPage"><i class="fa fa-cogs"></i>角色管理</a></dd>
+                <dd><a href="/web/function/toPage"><i class="fa fa-code"></i>功能管理</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item">
             <a href="javascript:;">
-                您好，<i class="item-impt"><span th:text="${session.aaSession}"></span></i>
+                您好，<i class="item-impt"><span th:text="${session.loginUserSession.loginName}"></span></i>
             </a>
             <dl class="layui-nav-child">
                 <dd><a href="javascript:;" id="passModify">修改密码</a></dd>

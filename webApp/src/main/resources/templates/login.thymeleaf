@@ -127,7 +127,7 @@
                 },
                 error: function (json)
                 {
-                    layer.alert("登录超时,请重新登录！", {closeBtn: 0}, function ()
+                    layer.alert(json.responseJSON.message, {closeBtn: 0}, function ()
                     {
                         layer.closeAll();
                         window.location.reload();

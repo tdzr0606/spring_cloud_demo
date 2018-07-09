@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Date;
 
@@ -117,6 +118,24 @@ public class IndexController extends BaseController
         modelAndView = new ModelAndView();
         modelAndView.addObject("nowDate", new Date());
         modelAndView.setViewName("index");
+        return modelAndView;
+    }
+
+
+    /**
+     * 退出
+     * Log out model and view.
+     *
+     * @return the model and view
+     * @author:竺志伟
+     * @date :2018-07-09 09:37:44
+     */
+    @RequestMapping(value = "/web/logOut")
+    public ModelAndView logOut()
+    {
+        super.clearSession();
+        modelAndView = new ModelAndView();
+        modelAndView.setView(new RedirectView("/"));
         return modelAndView;
     }
 }

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 错误处理
+ * 统一错误处理
  * spring_cloud_demo
  * MyErrorController
  *
@@ -28,8 +28,6 @@ import java.util.Map;
 @RequestMapping("/error")
 public class MyErrorController extends BasicErrorController
 {
-    private static String errorPath = "/error";
-
     public MyErrorController(ServerProperties serverProperties)
     {
         super(new DefaultErrorAttributes(), serverProperties.getError());
@@ -45,8 +43,18 @@ public class MyErrorController extends BasicErrorController
         HttpStatus status = getStatus(request);
         //输出自定义的Json格式
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("status", false);
-        map.put("msg", body.get("message"));
+        if(status.is4xxClientError())
+        {
+            map.put("message", "页面:" + body.get("path").toString() + "已经丢失,请联系管理员!");
+        }
+        else if(status.is5xxServerError())
+        {
+            map.put("message", "页面:" + body.get("path").toString() + "发生系统错误,请联系管理员!");
+        }
+        else
+        {
+            map.put("message", body.get("message"));
+        }
         return new ResponseEntity<Map<String, Object>>(map, status);
     }
 
@@ -69,7 +77,7 @@ public class MyErrorController extends BasicErrorController
         }
         else if(status.is4xxClientError())
         {
-            modelAndView.addObject("errorInfo","页面丢失了,程序员悬赏通缉中.....");
+            modelAndView.addObject("errorInfo", "页面丢失了,程序员悬赏通缉中.....");
             modelAndView.addObject("uri", model.get("path").toString());
             modelAndView.setViewName("common/error404");
         }

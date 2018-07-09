@@ -22,5 +22,27 @@ public interface AdminServer
                 @RequestParam(value = "password", defaultValue = "", required = true) String password);
 
     @RequestMapping(value = "/admin/listPage")
-    Page<Admin> listPage();
+    Page<Admin> listPage(@RequestParam(value = "page", required = true, defaultValue = "1") Integer page,
+                         @RequestParam(value = "rows", required = true, defaultValue = "40") Integer rows,
+                         @RequestParam(value = "key", required = false, defaultValue = "") String key);
+
+    @RequestMapping(value = "/admin/loginNameCheck")
+    boolean loginNameCheck(@RequestParam(value = "loginName", required = true, defaultValue = "") String loginName);
+
+    @RequestMapping(value = "/admin/add")
+    boolean add(Admin admin);
+
+    @RequestMapping(value = "/admin/modify")
+    boolean modify(Admin admin);
+
+    @RequestMapping(value = "/admin/deleteByIds")
+    void deleteByIds(String[] ids);
+
+    @RequestMapping(value = "/admin/info")
+    Admin findById(@RequestParam(value = "id", required = true, defaultValue = "0") Integer id);
+
+    @RequestMapping(value = "/admin/modifyPass")
+    boolean modifyPass(@RequestParam(value = "id", required = true, defaultValue = "0") Integer id,
+                       @RequestParam(value = "newPass", required = true, defaultValue = "") String newPass);
+
 }

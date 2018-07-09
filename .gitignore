@@ -55,3 +55,4 @@ Temporary Items
 /webApp/target/
 /eurekaServer/target/
 /logs/
+/.idea/

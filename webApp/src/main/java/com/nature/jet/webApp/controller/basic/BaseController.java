@@ -74,4 +74,9 @@ public abstract class BaseController
     {
         return request.getSession().getAttribute(Fields.VCODE_WEBADMIN_LOGIN).toString();
     }
+
+    protected void clearSession()
+    {
+        request.getSession().removeAttribute(Fields.SESSION_LOGIN_USER);
+    }
 }
